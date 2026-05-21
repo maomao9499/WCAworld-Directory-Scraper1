@@ -1,0 +1,70 @@
+# WCAworld 国家代码表
+# 格式: 代码 = 国家名称 (ISO 3166-1 alpha-2)
+
+# 常用国家
+CN = China (中国)
+US = United States (美国)
+GB = United Kingdom (英国)
+DE = Germany (德国)
+FR = France (法国)
+JP = Japan (日本)
+KR = South Korea (韩国)
+SG = Singapore (新加坡)
+HK = Hong Kong (香港)
+TW = Taiwan (台湾)
+AU = Australia (澳大利亚)
+CA = Canada (加拿大)
+IN = India (印度)
+RU = Russia (俄罗斯)
+BR = Brazil (巴西)
+
+# 欧洲
+PL = Poland (波兰)
+IT = Italy (意大利)
+ES = Spain (西班牙)
+NL = Netherlands (荷兰)
+BE = Belgium (比利时)
+SE = Sweden (瑞典)
+NO = Norway (挪威)
+DK = Denmark (丹麦)
+FI = Finland (芬兰)
+AT = Austria (奥地利)
+CH = Switzerland (瑞士)
+PT = Portugal (葡萄牙)
+GR = Greece (希腊)
+CZ = Czech Republic (捷克)
+HU = Hungary (匈牙利)
+RO = Romania (罗马尼亚)
+UA = Ukraine (乌克兰)
+TR = Turkey (土耳其)
+IE = Ireland (爱尔兰)
+
+# 亚洲
+TH = Thailand (泰国)
+VN = Vietnam (越南)
+MY = Malaysia (马来西亚)
+ID = Indonesia (印度尼西亚)
+PH = Philippines (菲律宾)
+PK = Pakistan (巴基斯坦)
+BD = Bangladesh (孟加拉)
+AE = United Arab Emirates (阿联酋)
+SA = Saudi Arabia (沙特阿拉伯)
+IL = Israel (以色列)
+IR = Iran (伊朗)
+
+# 非洲
+ZA = South Africa (南非)
+EG = Egypt (埃及)
+NG = Nigeria (尼日利亚)
+KE = Kenya (肯尼亚)
+MA = Morocco (摩洛哥)
+
+# 南美洲
+AR = Argentina (阿根廷)
+CL = Chile (智利)
+CO = Colombia (哥伦比亚)
+PE = Peru (秘鲁)
+MX = Mexico (墨西哥)
+
+# 大洋洲
+NZ = New Zealand (新西兰)
