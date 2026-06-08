@@ -29,6 +29,7 @@ export function flattenMembers(members: Member[]): Record<string, string>[] {
         'Contact Email': '',
         'Contact Direct Line': '',
         'Contact Mobile': '',
+        'Source URL': member.sourceUrl || '',
       });
       continue;
     }
@@ -50,6 +51,7 @@ export function flattenMembers(members: Member[]): Record<string, string>[] {
         'Contact Email': contact.email || '',
         'Contact Direct Line': contact.directLine || '',
         'Contact Mobile': contact.mobile || '',
+        'Source URL': member.sourceUrl || '',
       });
     }
   }
@@ -61,4 +63,5 @@ export const CSV_HEADERS = [
   'Company ID', 'Company Name', 'Branch', 'City', 'Country', 'Address',
   'Phone', 'Fax', 'Website', 'General Email',
   'Contact Title', 'Contact Name', 'Contact Email', 'Contact Direct Line', 'Contact Mobile',
+  'Source URL',
 ];

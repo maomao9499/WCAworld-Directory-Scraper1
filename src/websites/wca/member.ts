@@ -1,6 +1,6 @@
 import { Page } from 'playwright';
-import { Member, MemberLink } from './types';
-import { sleep } from './utils';
+import { Member, MemberLink } from '../../types';
+import { sleep } from '../../utils';
 
 const WCA_BASE = 'https://www.wcaworld.com/directory/members';
 
@@ -10,12 +10,9 @@ export async function scrapeMemberDetail(
 ): Promise<Member | null> {
   const { id, url } = link;
 
-  // Build a list of URLs to try: original first, then wcaworld.com fallback
   const urls = [url];
   if (!url.includes('wcaworld.com')) {
     urls.push(`${WCA_BASE}/${id}`);
-  } else {
-    // If original is wcaworld.com, still good as-is
   }
 
   let pageLoaded = false;
@@ -34,7 +31,6 @@ export async function scrapeMemberDetail(
     return null;
   }
 
-  // Wait a bit for dynamic content
   await sleep(500);
 
   try {
@@ -50,7 +46,6 @@ export async function scrapeMemberDetail(
       const idEl = document.querySelector('.compid span');
       const id = idEl ? (idEl.textContent || '').replace('ID:', '').trim() : mId;
 
-      // Extract address
       let address = '';
       document.querySelectorAll('.row').forEach((row: Element) => {
         const headline = row.querySelector('.profile_headline');
@@ -60,7 +55,6 @@ export async function scrapeMemberDetail(
         }
       });
 
-      // Extract city/country from company name pattern "Company (Branch), City, Country"
       let city = '';
       let country = '';
       const cityCountryMatch = companyName.match(/,\s*([^,]+),\s*([^,]+)$/);
@@ -75,7 +69,7 @@ export async function scrapeMemberDetail(
       }
 
       if (address && !city) {
-        const parts = address.split(',').map(p => p.trim());
+        const parts = address.split(',').map((p) => p.trim());
         if (parts.length >= 2) {
           if (!country) country = parts[parts.length - 1];
           const beforeLast = parts[parts.length - 2];
@@ -84,7 +78,6 @@ export async function scrapeMemberDetail(
         }
       }
 
-      // Extract Contact Details section
       let phone = '';
       let fax = '';
       let website = '';
@@ -125,7 +118,6 @@ export async function scrapeMemberDetail(
         }
       });
 
-      // Extract Office Contacts section
       interface ContactData {
         title: string;
         name?: string;

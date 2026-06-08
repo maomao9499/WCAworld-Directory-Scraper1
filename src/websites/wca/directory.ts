@@ -1,6 +1,6 @@
 import { Page } from 'playwright';
-import { sleep } from './utils';
-import { MemberLink } from './types';
+import { sleep } from '../../utils';
+import { MemberLink } from '../../types';
 
 export async function getMemberLinks(
   page: Page,
@@ -31,9 +31,8 @@ export async function getMemberLinks(
     await sleep(500);
   }
 
-  // Deduplicate by ID
   const seen = new Set<string>();
-  const unique = allLinks.filter(link => {
+  const unique = allLinks.filter((link) => {
     if (seen.has(link.id)) return false;
     seen.add(link.id);
     return true;
@@ -75,7 +74,6 @@ async function extractMemberLinks(page: Page): Promise<MemberLink[]> {
         const match = a.href.match(/\/directory\/members\/(\d+)/);
         if (match) {
           const id = match[1];
-          // Prefer wcaworld.com URLs; fall back to any network URL
           if (!seen.has(id) || a.href.includes('wcaworld.com')) {
             seen.set(id, a.href);
           }
